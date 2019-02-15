@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiroboot.shirotest.dao.TabUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shiroboot.shirotest.model.TabUser">
+        <id column="id" property="id" />
+        <result column="col_name" property="colName" />
+        <result column="col_password" property="colPassword" />
+        <result column="col_salt" property="colSalt" />
+        <result column="col_status" property="colStatus" />
+        <result column="col_code" property="colCode" />
+    </resultMap>
+
+    <select id="findRolesByUsername" parameterType="string" resultType="string">
+        SELECT t2.col_name FROM tab_role t2 WHERE t2.id IN
+        (SELECT t1.col_role_id FROM tab_user_role t1 WHERE t1.`col_user_id` IN
+          (SELECT id FROM tab_user WHERE col_name=#{username}))
+
+    </select>
+
+</mapper>

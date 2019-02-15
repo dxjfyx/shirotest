@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiroboot.shirotest.dao.TabRoleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.shiroboot.shirotest.model.TabRole">
+        <id column="id" property="id" />
+        <result column="col_name" property="colName" />
+        <result column="col_status" property="colStatus" />
+        <result column="col_code" property="colCode" />
+    </resultMap>
+
+    <select id="findAuthority" parameterType="string" resultType="string">
+        SELECT
+            t3.`col_name`
+        FROM
+            tab_authority t3
+        WHERE t3.`id` IN
+        (
+        SELECT
+            t2.`authority_id`
+        FROM
+            tab_role_authority t2
+        WHERE t2.`role_id` IN
+
+        (SELECT
+            t1.`id`
+        FROM
+            tab_role t1
+        WHERE
+            t1.`col_name`=#{roleName}
+        )
+
+    </select>
+
+</mapper>

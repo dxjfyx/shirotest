@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql:///property?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template: true
+    mode: HTML
+    encoding: UTF-8
+    check-template-location: true
+
+# 配置web
+server:
+  port: 8080
+  servlet:
+    context-path: /shiroboot
+
+# 配置mybatisplus
+mybatis-plus:
+  type-aliases-package: com.shiroboot.shirotest.model
+  mapper-locations: classpath:/mapper/**.xml
