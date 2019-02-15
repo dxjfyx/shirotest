@@ -86,6 +86,7 @@ public class MyRealm extends AuthorizingRealm {
         String s1 = md5Hash.toHex();
         ByteSource salt = md5Hash.getSalt();
         System.out.println(s1);
+        // 测试git分支冲突
     }
 
 }
