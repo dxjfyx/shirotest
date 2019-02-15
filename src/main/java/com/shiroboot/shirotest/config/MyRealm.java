@@ -50,6 +50,7 @@ public class MyRealm extends AuthorizingRealm {
 
 
         authorizationInfo.addRoles(roles);
+        // 添加以添git测试,用来测试git冲突
         return authorizationInfo;
     }
 
