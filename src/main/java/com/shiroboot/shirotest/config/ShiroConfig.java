@@ -32,6 +32,7 @@ public class ShiroConfig {
         myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return myShiroRealm;
         // 合并分支
+        // 主分支修改部分
     }
 
     /**
