@@ -31,6 +31,7 @@ public class ShiroConfig {
         MyRealm myShiroRealm = new MyRealm();
         myShiroRealm.setCredentialsMatcher(hashedCredentialsMatcher());
         return myShiroRealm;
+        // 合并分支
     }
 
     /**
